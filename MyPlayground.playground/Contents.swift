@@ -6,6 +6,12 @@ import UIKit
 
 // Your function here
 
+func double(input: Double) -> Double {
+    let result = input * 2
+    return result
+}
+
+
 
 let testCasesOne: [(Double, Double)] = [
     (input: 3.0, expectedOutput: 6.0),
@@ -14,10 +20,12 @@ let testCasesOne: [(Double, Double)] = [
     (input: 99, expectedOutput: 198)
 ]
 
-//for (input, expectedOutput) in testCasesOne {
-//    let output = double(input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+
+for (input, expectedOutput) in testCasesOne {
+    let output = double(input: input)
+    
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 
@@ -26,6 +34,9 @@ let testCasesOne: [(Double, Double)] = [
 // Write a function named smallest(of:and:) that takes in two Doubles and returns the smaller number
 
 // Your function here
+
+
+
 
 let testCasesTwo: [(Double, Double, Double)] = [
     (inputOne: 8.0, inputTwo: 3.0, expectedOutput: 3.0),
