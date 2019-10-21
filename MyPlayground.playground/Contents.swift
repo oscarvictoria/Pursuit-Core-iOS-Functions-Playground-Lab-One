@@ -35,7 +35,9 @@ for (input, expectedOutput) in testCasesOne {
 
 // Your function here
 
-
+func smallest(of:Double, and: Double) -> Double {
+    return Double(min(of, and))
+}
 
 
 let testCasesTwo: [(Double, Double, Double)] = [
@@ -44,11 +46,12 @@ let testCasesTwo: [(Double, Double, Double)] = [
     (inputOne: -5, inputTwo: -3, expectedOutput: -5),
     (inputOne: 2.3, inputTwo: 2.03, expectedOutput: 2.03)
 ]
+print(testCasesTwo)
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
-//    let output = smallest(of: inputOne, and: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
+    let output = smallest(of: inputOne, and: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
+}
 
 // Question Three
 
