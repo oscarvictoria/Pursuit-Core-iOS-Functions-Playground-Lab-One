@@ -7,8 +7,7 @@ import UIKit
 // Your function here
 
 func double(input: Double) -> Double {
-    let result = input * 2
-    return result
+    return input * 2
 }
 
 
@@ -36,7 +35,7 @@ for (input, expectedOutput) in testCasesOne {
 // Your function here
 
 func smallest(of:Double, and: Double) -> Double {
-    return Double(min(of, and))
+    return Double(min(of,and))
 }
 
 
@@ -46,7 +45,7 @@ let testCasesTwo: [(Double, Double, Double)] = [
     (inputOne: -5, inputTwo: -3, expectedOutput: -5),
     (inputOne: 2.3, inputTwo: 2.03, expectedOutput: 2.03)
 ]
-print(testCasesTwo)
+
 
 for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
     let output = smallest(of: inputOne, and: inputTwo)
@@ -59,6 +58,13 @@ for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
 
 // Your function here
 
+func smallestValue(inn:[Double]) -> Double {
+    let value = inn.min() ?? 0.0
+    
+    return value
+}
+
+
 let testCasesThree: [([Double], Double)] = [
     (input: [1.0,2,3,4,5,5], expectedOutput: 1.0),
     (input: [6,5,4,3,2,1], expectedOutput: 1),
@@ -66,17 +72,32 @@ let testCasesThree: [([Double], Double)] = [
     (input: [-4,-59,-348,-34,-4], expectedOutput: -348),
 ]
 
-//for (input, expectedOutput) in testCasesThree {
-//    let output = smallestValue(in: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesThree {
+    let output = smallestValue(inn: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 // Question Four
 
 // Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
 
-// Your function here
+ //Your function here
+
+func occurrances(of: Character, inString: String) -> Int {
+    var charCount = 0
+    for char in inString {
+        if char == of {
+            charCount += 1
+        }
+    }
+    return charCount
+}
+
+
+
+
+
 
 let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "l", inputTwo: "hello", expectedOutput: 2),
@@ -85,10 +106,10 @@ let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "E", inputTwo: "cApItAlS aRe DiFfErEnT", expectedOutput: 2),
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesFour {
-//    let output = occurrances(of: inputOne, in: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesFour {
+    let output = occurrances(of: inputOne, inString: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
+}
 
 
 // Question Five
@@ -96,6 +117,12 @@ let testCasesFour: [(Character, String, Int)] = [
 // Write a function called removeNils(from:) that takes an array of optional Ints and returns an array with them unwrapped with any nil values removed.
 
 // Your function here
+//
+func removeNils(from:[Int?]) -> [Int] {
+
+    return from.compactMap { $0 }
+
+}
 
 let testCasesFive: [([Int?], [Int])] = [
     (input: [1, nil, 9, nil, 10, nil], expectedOutput: [1,9,10]),
@@ -104,8 +131,8 @@ let testCasesFive: [([Int?], [Int])] = [
     (input: [], expectedOutput: []),
 ]
 
-//for (input, expectedOutput) in testCasesFive {
-//    let output = removeNils(from: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesFive {
+    let output = removeNils(from: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
